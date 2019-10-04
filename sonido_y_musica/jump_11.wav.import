@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/jump_11.wav-7cfa111610a8e1d651fdc916d00f3e76.sample"
+
+[deps]
+
+source_file="res://sonido_y_musica/jump_11.wav"
+dest_files=[ "res://.import/jump_11.wav-7cfa111610a8e1d651fdc916d00f3e76.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

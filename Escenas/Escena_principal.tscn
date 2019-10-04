@@ -1,0 +1,313 @@
+[gd_scene load_steps=44 format=2]
+
+[ext_resource path="res://Codigos/Escena_principal.gd" type="Script" id=1]
+[ext_resource path="res://Escenas/suelo_obstaculo_1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Escenas/suelo_obstaculo_2.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Escenas/suelo_obstaculo_3.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Escenas/suelo_obstaculo_4.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Escenas/suelo_obstaculo_5.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Escenas/dinosaruio.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Codigos/Camera.gd" type="Script" id=8]
+[ext_resource path="res://texturas/paralax_fondo/primer_plano.png" type="Texture" id=9]
+[ext_resource path="res://texturas/paralax_fondo/segundo_plano.png" type="Texture" id=10]
+[ext_resource path="res://texturas/paralax_fondo/nuves.png" type="Texture" id=11]
+[ext_resource path="res://texturas/paralax_fondo/cielo.png" type="Texture" id=12]
+[ext_resource path="res://texturas/humo_correr.png" type="Texture" id=13]
+[ext_resource path="res://Escenas/suelo_obstaculo.tscn" type="PackedScene" id=14]
+[ext_resource path="res://tipografias/Karate.ttf" type="DynamicFontData" id=15]
+[ext_resource path="res://sonido_y_musica/easy joy.ogg" type="AudioStream" id=16]
+[ext_resource path="res://sonido_y_musica/jump_11.wav" type="AudioStream" id=17]
+[ext_resource path="res://sonido_y_musica/lose sound 1-2.wav" type="AudioStream" id=18]
+[ext_resource path="res://sonido_y_musica/jumpland.wav" type="AudioStream" id=19]
+[ext_resource path="res://texturas/touch_screen_transparente.png" type="Texture" id=20]
+
+[sub_resource type="SpatialMaterial" id=1]
+flags_transparent = true
+flags_unshaded = true
+albedo_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="CubeMesh" id=2]
+material = SubResource( 1 )
+size = Vector3( 1, 1, 12 )
+
+[sub_resource type="SpatialMaterial" id=3]
+flags_transparent = true
+flags_unshaded = true
+params_use_alpha_scissor = true
+params_alpha_scissor_threshold = 0.98
+uv1_offset = Vector3( 0.994868, 0, 0 )
+
+[sub_resource type="SpatialMaterial" id=4]
+flags_transparent = true
+flags_unshaded = true
+params_use_alpha_scissor = true
+params_alpha_scissor_threshold = 0.98
+uv1_offset = Vector3( 0.49615, 0, 0 )
+
+[sub_resource type="SpatialMaterial" id=5]
+flags_transparent = true
+flags_unshaded = true
+params_use_alpha_scissor = true
+params_alpha_scissor_threshold = 0.98
+uv1_offset = Vector3( 0.920706, 0, 0 )
+
+[sub_resource type="SpatialMaterial" id=6]
+flags_transparent = true
+flags_unshaded = true
+params_use_alpha_scissor = true
+params_alpha_scissor_threshold = 0.98
+
+[sub_resource type="SpatialMaterial" id=7]
+flags_transparent = true
+flags_unshaded = true
+albedo_texture = ExtResource( 13 )
+
+[sub_resource type="QuadMesh" id=8]
+material = SubResource( 7 )
+size = Vector2( 3, 2 )
+
+[sub_resource type="ProceduralSky" id=9]
+
+[sub_resource type="Environment" id=10]
+background_mode = 2
+background_sky = SubResource( 9 )
+
+[sub_resource type="SpatialMaterial" id=11]
+albedo_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="PrismMesh" id=12]
+material = SubResource( 11 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 50
+font_data = ExtResource( 15 )
+
+[sub_resource type="Animation" id=14]
+loop = true
+
+[sub_resource type="Animation" id=15]
+length = 65.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Camera/paralax_en_3D/nuve:material_override:uv1_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 65 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 1, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=16]
+length = 30.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Camera/paralax_en_3D/primer_plano:material_override:uv1_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 30 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 1, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=17]
+length = 40.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Camera/paralax_en_3D/segundo_plano:material_override:uv1_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 40 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 1, 0, 0 ) ]
+}
+
+[sub_resource type="AnimationNodeAdd2" id=18]
+
+[sub_resource type="AnimationNodeAdd2" id=19]
+
+[sub_resource type="AnimationNodeAnimation" id=20]
+animation = "segundo_plano"
+
+[sub_resource type="AnimationNodeAnimation" id=21]
+animation = "nuves"
+
+[sub_resource type="AnimationNodeAnimation" id=22]
+animation = "primer_plano"
+
+[sub_resource type="AnimationNodeBlendTree" id=23]
+graph_offset = Vector2( 94.4, 4.8 )
+nodes/Add2/node = SubResource( 19 )
+nodes/Add2/position = Vector2( 320, 64 )
+"nodes/Add2 2/node" = SubResource( 18 )
+"nodes/Add2 2/position" = Vector2( 560, 144 )
+nodes/Animation/node = SubResource( 22 )
+nodes/Animation/position = Vector2( 112, 48 )
+"nodes/Animation 2/node" = SubResource( 20 )
+"nodes/Animation 2/position" = Vector2( 112, 160 )
+"nodes/Animation 3/node" = SubResource( 21 )
+"nodes/Animation 3/position" = Vector2( 112, 272 )
+nodes/output/position = Vector2( 800, 64 )
+node_connections = [ "output", 0, "Add2 2", "Add2 2", 0, "Add2", "Add2 2", 1, "Animation 3", "Add2", 0, "Animation", "Add2", 1, "Animation 2" ]
+
+[node name="Escena_principal" type="Spatial" groups=[
+"Escena_principal",
+]]
+script = ExtResource( 1 )
+obstaculos = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ]
+
+[node name="dinosaruio" parent="." groups=[
+"dinosaruio",
+] instance=ExtResource( 7 )]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="dinosaruio"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 6 )
+visible = false
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="Camera" type="Camera" parent="."]
+editor/display_folded = true
+transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, -8.25, 2.65, 0 )
+current = true
+size = 10.0
+script = ExtResource( 8 )
+
+[node name="paralax_en_3D" type="Spatial" parent="Camera"]
+transform = Transform( 2, 0, 2.13163e-014, 0, 2, 0, -2.13163e-014, 0, 2, 0, 3.76, -15.304 )
+
+[node name="primer_plano" type="Sprite3D" parent="Camera/paralax_en_3D"]
+transform = Transform( 1.3, 0, -1.31134e-008, 0, 1, 0, -1.31134e-008, 0, 1, 0, 0.5, 1 )
+material_override = SubResource( 3 )
+texture = ExtResource( 9 )
+
+[node name="segundo_plano" type="Sprite3D" parent="Camera/paralax_en_3D"]
+transform = Transform( 1.38, 0, -1.66103e-008, 0, 1, 0, -1.66103e-008, 0, 1, 0.0900002, 0.69, 0.04 )
+material_override = SubResource( 4 )
+texture = ExtResource( 10 )
+
+[node name="nuve" type="Sprite3D" parent="Camera/paralax_en_3D"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.07, 0.5 )
+material_override = SubResource( 5 )
+texture = ExtResource( 11 )
+
+[node name="cielo" type="Sprite3D" parent="Camera/paralax_en_3D"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, -2 )
+material_override = SubResource( 6 )
+texture = ExtResource( 12 )
+
+[node name="serie_de_camaras_pruebas" type="Spatial" parent="Camera"]
+editor/display_folded = true
+
+[node name="Camera_media" type="Camera" parent="Camera/serie_de_camaras_pruebas"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.28, -0.94, 10.4 )
+
+[node name="Camera_lejos" type="Camera" parent="Camera/serie_de_camaras_pruebas"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40.19, -1.03, 28.64 )
+
+[node name="Camera_super_lejos" type="Camera" parent="Camera/serie_de_camaras_pruebas"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.96, -1.03, 31.96 )
+
+[node name="Camera_superior" type="Camera" parent="Camera/serie_de_camaras_pruebas"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-008, 1, 0, -1, -4.37114e-008, 22.96, 69.97, -8.04 )
+
+[node name="dinosaurio_particulas" type="CPUParticles" parent="." groups=[
+"dinosaurio_particulas",
+]]
+transform = Transform( -0.0251538, 0, -0.999684, 0, 1, 0, 0.999684, 0, -0.0251538, -0.116, 0.19, 0.432 )
+amount = 2
+lifetime = 0.5
+mesh = SubResource( 8 )
+flatness = 1.0
+gravity = Vector3( -5, 2, 0 )
+angular_velocity = 7.24592e-018
+angular_velocity_random = 0.24
+linear_accel = 1.0
+linear_accel_random = 0.63
+scale_amount_random = 1.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 10 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.965926, 0.212012, -0.148452, 0, 0.573576, 0.819152, 0.258819, -0.79124, 0.554032, -10, 9, 0 )
+shadow_enabled = true
+
+[node name="suelo_obstaculo" parent="." instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -40 )
+
+[node name="referencia_puntero" type="MeshInstance" parent="."]
+transform = Transform( 0.0871558, 8.70901e-008, 0.996195, 0, -4.55, 3.97774e-007, 0.996195, -7.6194e-009, -0.0871558, 0, 11, -7 )
+visible = false
+mesh = SubResource( 12 )
+material/0 = null
+
+[node name="puntaje" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 13 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Puntaje = 0"
+
+[node name="animaciones" type="Node" parent="."]
+editor/display_folded = true
+
+[node name="animaciones_fondo" type="AnimationPlayer" parent="animaciones"]
+autoplay = "meteorito_animado"
+anims/meteorito_animado = SubResource( 14 )
+anims/nuves = SubResource( 15 )
+anims/primer_plano = SubResource( 16 )
+anims/segundo_plano = SubResource( 17 )
+
+[node name="AnimationTree" type="AnimationTree" parent="animaciones"]
+tree_root = SubResource( 23 )
+anim_player = NodePath("../animaciones_fondo")
+active = true
+parameters/Add2/add_amount = 1.0
+"parameters/Add2 2/add_amount" = 1.0
+
+[node name="sonidos_Y_musica" type="Node" parent="."]
+editor/display_folded = true
+
+[node name="sonido_fondo" type="AudioStreamPlayer" parent="sonidos_Y_musica" groups=[
+"sonido_fondo",
+]]
+stream = ExtResource( 16 )
+autoplay = true
+bus = "musica"
+
+[node name="saltar" type="AudioStreamPlayer" parent="sonidos_Y_musica" groups=[
+"saltar",
+]]
+stream = ExtResource( 17 )
+
+[node name="morir" type="AudioStreamPlayer" parent="sonidos_Y_musica" groups=[
+"morir",
+]]
+stream = ExtResource( 18 )
+
+[node name="caer" type="AudioStreamPlayer" parent="sonidos_Y_musica" groups=[
+"caer",
+]]
+stream = ExtResource( 19 )
+
+[node name="Obstaculos_instanciados" type="Spatial" parent="."]
+
+[node name="click_touch" type="TouchScreenButton" parent="."]
+normal = ExtResource( 20 )
+action = "click_touch"

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Escenas/suelo.tscn" type="PackedScene" id=1]
+
+[node name="suelo_obstaculo" type="Spatial"]
+
+[node name="suelo" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 22 )
+
+[node name="suelo3" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 44 )
+
+[node name="suelo2" parent="." instance=ExtResource( 1 )]
