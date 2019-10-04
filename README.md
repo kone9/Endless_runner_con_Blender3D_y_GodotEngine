@@ -1,5 +1,5 @@
 # Endless_runner_con_Blender3D_y_GodotEngine
-# Proyecto creado con GODOT ENGINE y Blender3D
+# Proyecto creado con GODOT ENGINE y Blender 2.80
 
 itchio:https://kone9.itch.io/endless-runner-con-godot
 
