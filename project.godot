@@ -10,7 +10,6 @@ config_version=4
 
 _global_script_classes=[  ]
 _global_script_class_icons={
-
 }
 
 [application]
@@ -21,6 +20,8 @@ config/icon="res://cover_itchio.png"
 
 [display]
 
+window/size/width=682
+window/size/height=400
 window/size/always_on_top=true
 window/stretch/mode="2d"
 window/stretch/aspect="expand"

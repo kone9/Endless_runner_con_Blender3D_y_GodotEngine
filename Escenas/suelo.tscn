@@ -37,9 +37,8 @@ extents = Vector3( 2, 1.25, 11 )
 "suelo",
 ]]
 
-[node name="suelo" type="RigidBody" parent="."]
+[node name="suelo" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.12917, 10.925 )
-mode = 1
 
 [node name="suelo" type="MeshInstance" parent="suelo"]
 mesh = SubResource( 1 )
@@ -50,10 +49,10 @@ material/1 = null
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.118468, 0 )
 shape = SubResource( 2 )
 
-[node name="Area" type="Area" parent="." groups=[
+[node name="suelo_area" type="Area" parent="." groups=[
 "suelo_area",
 ]]
 
-[node name="shape2" type="CollisionShape" parent="Area"]
+[node name="shape2" type="CollisionShape" parent="suelo_area"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.05626, 10.925 )
 shape = SubResource( 2 )
