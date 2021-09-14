@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://Codigos/Escena_principal.gd" type="Script" id=1]
 [ext_resource path="res://Escenas/suelo_obstaculo_1.tscn" type="PackedScene" id=2]
@@ -20,6 +20,27 @@
 [ext_resource path="res://sonido_y_musica/lose sound 1-2.wav" type="AudioStream" id=18]
 [ext_resource path="res://sonido_y_musica/jumpland.wav" type="AudioStream" id=19]
 [ext_resource path="res://texturas/touch_screen_transparente.png" type="Texture" id=20]
+
+[sub_resource type="SpatialMaterial" id=20]
+flags_transparent = true
+flags_unshaded = true
+albedo_texture = ExtResource( 9 )
+uv1_offset = Vector3( 0.793657, 0, 0 )
+
+[sub_resource type="SpatialMaterial" id=21]
+flags_transparent = true
+flags_unshaded = true
+albedo_texture = ExtResource( 10 )
+uv1_offset = Vector3( 0.0952397, 0, 0 )
+
+[sub_resource type="SpatialMaterial" id=22]
+flags_transparent = true
+flags_unshaded = true
+albedo_texture = ExtResource( 11 )
+uv1_offset = Vector3( 0.289381, 0, 0 )
+
+[sub_resource type="SpatialMaterial" id=23]
+albedo_texture = ExtResource( 12 )
 
 [sub_resource type="SpatialMaterial" id=3]
 flags_transparent = true
@@ -111,18 +132,18 @@ animation = "nuves"
 animation = "primer_plano"
 
 [sub_resource type="AnimationNodeBlendTree" id=19]
-graph_offset = Vector2( 94.4, 4.8 )
+graph_offset = Vector2( -37, -26 )
 nodes/Add2/node = SubResource( 15 )
 nodes/Add2/position = Vector2( 320, 64 )
 "nodes/Add2 2/node" = SubResource( 14 )
-"nodes/Add2 2/position" = Vector2( 560, 144 )
+"nodes/Add2 2/position" = Vector2( 600, 140 )
 nodes/Animation/node = SubResource( 18 )
-nodes/Animation/position = Vector2( 112, 48 )
+nodes/Animation/position = Vector2( 40, -20 )
 "nodes/Animation 2/node" = SubResource( 16 )
-"nodes/Animation 2/position" = Vector2( 112, 160 )
+"nodes/Animation 2/position" = Vector2( 20, 120 )
 "nodes/Animation 3/node" = SubResource( 17 )
-"nodes/Animation 3/position" = Vector2( 112, 272 )
-nodes/output/position = Vector2( 800, 64 )
+"nodes/Animation 3/position" = Vector2( 120, 340 )
+nodes/output/position = Vector2( 860, 120 )
 node_connections = [ "output", 0, "Add2 2", "Add2", 0, "Animation", "Add2", 1, "Animation 2", "Add2 2", 0, "Add2", "Add2 2", 1, "Animation 3" ]
 
 [node name="Escena_principal" type="Spatial" groups=[
@@ -144,18 +165,22 @@ transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -2.55795e-13, 3.76, -15.304 )
 
 [node name="primer_plano" type="Sprite3D" parent="Camera/paralax_en_3D"]
 transform = Transform( 1.3, 0, -1.31134e-08, 0, 1, 0, -1.31134e-08, 0, 1, 0, 0.5, 1 )
+material_override = SubResource( 20 )
 texture = ExtResource( 9 )
 
 [node name="segundo_plano" type="Sprite3D" parent="Camera/paralax_en_3D"]
 transform = Transform( 1.38, 0, -1.66103e-08, 0, 1, 0, -1.66103e-08, 0, 1, 0.0900002, 0.69, 0.04 )
+material_override = SubResource( 21 )
 texture = ExtResource( 10 )
 
 [node name="nuve" type="Sprite3D" parent="Camera/paralax_en_3D"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.07, 0.5 )
+material_override = SubResource( 22 )
 texture = ExtResource( 11 )
 
 [node name="cielo" type="Sprite3D" parent="Camera/paralax_en_3D"]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, -2 )
+material_override = SubResource( 23 )
 texture = ExtResource( 12 )
 
 [node name="serie_de_camaras_pruebas" type="Spatial" parent="."]
